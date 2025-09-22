@@ -13,8 +13,18 @@ Output: False
 """
 
 def has_duplicates(product_ids):
-    # Your implementation here
-    pass
+    seen_ids = set()
+    for product_id in product_ids:
+        if product_id in seen_ids:
+            return True
+        seen_ids.add(product_id)
+    return False
+
+#Testing
+test_list_with_duplicates = [10, 20, 30, 20, 40]
+print(f"Input: {test_list_with_duplicates}")
+print(f"Output: {has_duplicates(test_list_with_duplicates)}")
+print()
 
 
 """
@@ -32,14 +42,31 @@ task_queue.remove_oldest_task() → "Email follow-up"
 
 class TaskQueue:
     def __init__(self):
-        # Your initialization here
-        pass
+        self.tasks = []
 
     def add_task(self, task):
-        pass
+        self.tasks.append(task)
+        print(f"Added task: '{task}'")
 
     def remove_oldest_task(self):
-        pass
+        if not self.tasks:
+            print("Queue is empty, no task to remove.")
+            return None
+        oldest_task = self.tasks.pop(0)
+        print(f"Removed oldest task: '{oldest_task}'")
+        return oldest_task
+    
+
+#Testing
+print("--- Problem 2: Order Manager ---")
+task_queue = TaskQueue()
+task_queue.add_task("Email follow-up")
+task_queue.add_task("Code review")
+task_queue.add_task("Write report")
+print(f"Current tasks: {task_queue.tasks}")
+print(f"Removed: {task_queue.remove_oldest_task()}")
+print(f"Current tasks: {task_queue.tasks}")
+print()
 
 
 """
@@ -57,10 +84,21 @@ tracker.get_unique_count() → 2
 
 class UniqueTracker:
     def __init__(self):
-        pass
+        self.unique_values = set()
 
     def add(self, value):
-        pass
+        self.unique_values.add(value)
+        print(f"Added value: {value}")
 
     def get_unique_count(self):
-        pass
+        return len(self.unique_values)
+    
+#Testing
+print("--- Problem 3: Unique Value Counter ---")
+tracker = UniqueTracker()
+tracker.add(10)
+tracker.add(20)
+tracker.add(10)
+tracker.add(30)
+print(f"Unique values seen so far: {tracker.get_unique_count()}")
+print()

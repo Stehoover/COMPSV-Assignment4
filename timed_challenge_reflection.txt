@@ -1,0 +1,15 @@
+When I first read the prompt to "remove the first occurrence of a value," my immediate thought process was entirely shaped by the ticking clock.
+My mind didn't jump to the most theoretically perfect algorithm or the most memory-efficient solution. Instead, it went straight to the most reliable
+and quickest way I knew to get a working answer out the door. The pressure isn't about writing beautiful code; it's about solving the problem, plain and simple.
+
+I knew I could use list.index() to find the position of the first 20 in the example list [10, 20, 30, 20].
+This felt like a huge shortcut. I didn't have to write a loop to find the element myself, which would have
+taken precious seconds and increased the chance of a bug. The time limit makes you trust the language's tools.
+After that, list slicing was the natural next step. I could slice the list from the beginning up to the found index,
+then slice it again from one position past the index to the end, and then simply combine the two parts.
+This creates a brand new list, but the code is so clean and direct. The main trade-off I made was in performance and memory.
+My solution is technically not in-place, and it has to do a couple of passes over the list,
+which means it’s not the absolute fastest for a massive list. A more optimal solution might have been
+to iterate once and rebuild the list on the fly without creating a new copy, or to use list.remove()
+which modifies the list in-place. However, those approaches can be trickier to implement flawlessly under pressure.
+It’s a good lesson in how a simple, robust solution is often better than a complex, fragile one when time is of the essence.
